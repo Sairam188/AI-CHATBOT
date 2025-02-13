@@ -27,7 +27,7 @@ def healthcare_chatbot(user_input):
     else:
         user_input = user_input.lower()
 
-         predefined_responses = {
+        predefined_responses = {
         "fever": "A fever is a temporary increase in body temperature, often due to an infection. Stay hydrated and rest. If it persists, consult a doctor.",
         "corona precautions": "To prevent COVID-19, wear a mask, maintain social distancing, wash hands frequently, and get vaccinated.",
         "symptoms of covid": "Common symptoms include fever, cough, fatigue, difficulty breathing, and loss of taste or smell.",
