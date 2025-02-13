@@ -10,7 +10,8 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 # Load a more advanced model (Mistral-7B-Instruct or Llama-2-7B)
-chatbot = pipeline("text-generation", model="mistralai/Mistral-7B-Instruct", torch_dtype=torch.float16, device=0)
+chatbot = pipeline("text-generation", model="gpt2")
+
 
 
 def healthcare_chatbot(user_input):
