@@ -10,7 +10,8 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 # Load a more advanced model (Mistral-7B-Instruct or Llama-2-7B)
-chatbot = pipeline("text-generation", model="gpt2")
+chatbot = pipeline("text2text-generation", model="google/flan-t5-small")
+
 
 
 
@@ -25,7 +26,7 @@ def healthcare_chatbot(user_input):
         return "It's important to take your prescribed medications regularly. If you have concerns, consult your doctor."
     else:
         # Generate response using the LLM
-        response = chatbot(user_input, max_length=300, num_return_sequences=1)
+        response = chatbot(user_input, max_length=100, num_return_sequences=1)
         return response[0]['generated_text']
 
 
