@@ -10,7 +10,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 # Load a more advanced model (Mistral-7B-Instruct or Llama-2-7B)
-chatbot = pipeline("text2text-generation", model="google/flan-t5-small")
+chatbot = pipeline("question-answering", model="deepset/roberta-base-squad2")
 
 
 
