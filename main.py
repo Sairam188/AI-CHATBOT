@@ -25,10 +25,26 @@ def healthcare_chatbot(user_input):
     elif "medication" in user_input.lower():
         return "It's important to take your prescribed medications regularly. If you have concerns, consult your doctor."
     else:
-        # Generate response using the LLM
-        response = chatbot(user_input, max_length=100, num_return_sequences=1)
-        return response[0]['generated_text']
+        user_input = user_input.lower()
 
+         predefined_responses = {
+        "fever": "A fever is a temporary increase in body temperature, often due to an infection. Stay hydrated and rest. If it persists, consult a doctor.",
+        "corona precautions": "To prevent COVID-19, wear a mask, maintain social distancing, wash hands frequently, and get vaccinated.",
+        "symptoms of covid": "Common symptoms include fever, cough, fatigue, difficulty breathing, and loss of taste or smell.",
+        "medication": "Always take medications as prescribed by your doctor. If you experience side effects, seek medical advice."
+        }
+
+        # Check if input matches predefined responses
+        for key in predefined_responses:
+            if key in user_input:
+               return predefined_responses[key]
+
+        # Use AI model for other queries
+        context = """This is a healthcare chatbot that provides medical guidance. 
+                 It can answer general health-related questions but is not a substitute for professional medical advice."""
+    
+        response = chatbot(question=user_input, context=context)  # Fix: Pass question & context correctly
+        return response['answer']
 
 def main():
     """Streamlit Web App UI for Chatbot."""
